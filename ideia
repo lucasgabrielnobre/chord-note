@@ -1,0 +1,19 @@
+Tema: Gerenciamento de Acordes em músicas
+Nome do Elemento: Musica
+Dados do elemento
+
+id: inteiro
+nome: string
+corpo: Lista de Compassos
+compasso: Lista de Acordes
+acorde: String
+
+Operações com os elementos:
+Adicionar/Remover/Atualizar Compassos
+Adicionar/Remover/Atualizar Acordes
+Adicionar/Remover/Atualizar/Listar as músicas
+Visualizar uma música com seus acordes
+Transformas cada acorde em suas notas (C => C E G)
+
+ordenar as notas dos acordes por ordem de aperecimento ex (mostra todas as notas): G/Cmaj7/9: G C E G B D
+' ' por valor ( a tonica é a primeira ? ) (remover repetidos): C s
