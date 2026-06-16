@@ -1,0 +1,2 @@
+1;Primeira Musica;Dm7 G7 Cmaj7;
+2;Segunda Música;Bm7b5 E7 Am7;

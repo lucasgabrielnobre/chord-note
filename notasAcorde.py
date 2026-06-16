@@ -76,9 +76,10 @@ def notasAcorde(s):
     q = acorde['qualidade']
     if (t != acorde['baixo']): 
         notas.append(acorde['baixo'])
-    notas += acorde['triade']
     if len(acorde['extensoes']) > 0: # se tem extensao tem a setima C9 => C E G Bb D
-        if q == "maior":
+        if '6' in acorde['extensoes']:  
+            notas.append(valorNota[jump(t, maior[6])][-1])
+        elif q == "maior":
             notas.append(valorNota[jump(t, maior[7])][0])
         else:
             notas.append(valorNota[jump(t, menor[7])][-1])
@@ -97,11 +98,21 @@ def notasAcorde(s):
         else:
             acidente = ext[0]
             grau =  int(ext[1:3])
-        if grau >= 8:
-            grau -= 7
-        if grau == 7:
-            continue
 
+
+        if grau == 5:
+            n = acorde['triade'][2] # pega a quinta
+            n = notaValor[n]
+            if acidente == "b":
+                n -= 1
+            elif acidente == "#":
+                n += 1
+            acorde['triade'][2] = valorNota[n][-1] if acidente == "b" else valorNota[n][0]
+            continue
+        if grau >= 8: # ajeitar b5 mudar a triade
+            grau -= 7
+        if grau == 7 or grau == 6:
+            continue
         valor = 0
 
         if q == "maior":
@@ -123,11 +134,17 @@ def notasAcorde(s):
         #nota = valorNota[ jump(t, valor) ][-1] if acidente == "b" else valorNota[ jump(t, valor) ][0] 
         if acidente == "b":
             nota = valorNota[ jump(t, valor) ][-1]
+
         elif len(acorde['triade'][0]) > 1 and acorde['triade'][0][-1] == "b": # Db
             nota = valorNota[ jump(t, valor) ][-1]
+
         else:
             nota = valorNota[ jump(t, valor) ][0]
+
+        if grau == 6:
+            notas.pop()
         notas.append(nota)
+    notas = acorde['triade'] + notas
     return notas
 
 def main():
