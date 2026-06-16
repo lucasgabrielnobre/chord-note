@@ -5,5 +5,4 @@ for nota, valor in notaValor.items():
         valorNota[valor] = [] # cria uma lista se não existir
     valorNota[valor].append(nota) # permite varias notas para um valor
 
-intervalos = { 'maj': [0, 4, 7], '7': [10], } 
 

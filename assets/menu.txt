@@ -1,5 +1,5 @@
 1 - Listar músicas
-2 - Procurar música
+2 - Visualizar música
 3 - Criar música
 4 - Excluir música
 5 - Atualizar música
