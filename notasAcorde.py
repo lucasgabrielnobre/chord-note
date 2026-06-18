@@ -68,16 +68,13 @@ def lerAcorde(s):
         acorde['triade'] = [valorNota[t][0], valorNota[jump(t, maior[4])][0], valorNota[jump(t, maior[5])][0]]
     return acorde
 
-# if semitons < 0: #diminuir por 1 é a mesma coisa que aumentar por 11, por 2, 10
-# semitons = 12 + semitons
-
 def transporAcorde(acorde, semitons):
     if len(acorde) == 1:
         return valorNota[jump(notaValor[acorde], semitons)][-1]
     elif acorde[1] == "#" or acorde[1] == "b":
         tonica = acorde[0] + acorde[1]
         tonica = valorNota[jump(notaValor[tonica], semitons)][-1]
-        extensoes = acorde[1:-1]
+        extensoes = acorde[2:]
         return tonica + extensoes
     else:
         tonica = valorNota[jump(notaValor[acorde[0]], semitons)][-1]

@@ -3,6 +3,8 @@ from notasAcorde import notasAcorde, transporAcorde
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+
+print(id)
 def menu():
     file = open("assets/menu.txt")
     menu = file.read()
@@ -26,6 +28,17 @@ def acharMusica(idAc):
             musica = dados
             break
     return musica
+def buscarMusica(nomeBusca):
+    file = open("data/musicas.txt", "r")
+    linhas = file.readlines()
+    file.close()
+    musicas = []
+    for linha in linhas:
+        dados = linha.split(";")
+        nome = dados[1].lower()
+        if nome.find(nomeBusca) != -1:
+            musicas.append(dados)
+    return musicas
 
 def listarMusicas():
     file = open("data/musicas.txt", "r")
@@ -43,9 +56,6 @@ def atualizarMusica(idAt):
         print("Não existe musica com esse id.")
         return
     print("Digite novos campos (vazio se não quiser mudar) ")
-    id = input("Id({}): ".format(musica[0]))
-    if len(id) == 0:
-        id = musica[0]
     nome = input("Nome({}): ".format(musica[1]))
     if len(nome) == 0:
         nome = musica[1]
@@ -59,9 +69,11 @@ def atualizarMusica(idAt):
         if len(c) == 0:
             novoComp.append(compasso)
         else:
+            c = " ".join(c.split())
             novoComp.append(c)
     fileR = open("data/musicas.txt", "r")
     linhas = fileR.readlines()
+    fileR.close()
     file = open("data/musicas.txt", "w")
     for linha in linhas:
         dados = linha.split(";")
@@ -89,7 +101,6 @@ def transporMusica(musica, id, nome, semitons):
             if i < len(acs) - 1:
                 novoComp += " "
         novoComp += "|"
-    print(novoComp)
     criarMusica(id, nome, novoComp)
 
 
@@ -145,7 +156,7 @@ def excluirMusica(idDel):
     file.close()
 def criarMusica(id, nome, compassos):
     file = open("data/musicas.txt", "a")
-    file.write(id + ";" + nome + ";")
+    file.write(str(id) + ";" + nome + ";")
     file.write(compassos)
     file.write("\n")        
     file.close()
@@ -153,16 +164,35 @@ def main():
     clear()
     print(logo())
     print(menu())
+    file = open("data/id.txt")
+    id = int(file.read())
+    file.close()
+    print(id)
     op = "1"
     while True:
         op = input("Digite uma opção: ")
         if op == '1':
             listarMusicas()
         elif op == '2':
-            idVis = input("Digite o id da música: ")
+            opBusca = input("Procurar por nome(1: sim)? ")
+            idVis = "0"
+            if opBusca  == "1": # se quer buscar por nome
+                nomeBusca = input("Digite o nome: ").lower()
+                musicas = buscarMusica(nomeBusca)
+                if len(musicas) == 0: # se não achou musica com tal nome
+                    print("Não existe musica com esse nome.")
+                    continue
+                elif len(musicas) == 1: # se existir apenas uma musica não precisa buscar por id
+                    idVis = musicas[0][0]
+                else: # mostra todas as opcoes
+                    for musica in musicas:
+                        print(musica[0], "-", musica[1])
+                    idVis = input("Digite o id da música: ")
+            else:
+                idVis = input("Digite o id da música: ")
+
             visualizarMusica(idVis)
         elif op == '3':
-            id = input("Digite o id da musica: ")
             nome = input("Digite o nome da música: ")
             print("Digite os acordes, cada linha é um compasso (0 para terminar): ")
             compasso = ""
@@ -171,9 +201,14 @@ def main():
                 compasso = input()
                 if compasso == "0":
                     break
-                compasso = compasso.strip()
+                compasso = " ".join(compasso.split())
                 compassos += compasso + "|"
+
             criarMusica(id, nome, compassos)
+            id += 1
+            file = open("data/id.txt", "w")
+            file.write(str(id))
+            file.close()
         elif op == '4':
             idDel = input("Digite o id da música: ")
             excluirMusica(idDel)
