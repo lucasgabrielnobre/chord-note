@@ -3,4 +3,6 @@
 3 - Criar música
 4 - Excluir música
 5 - Atualizar música
+6 - Transpor música
+7 - Limpar Tela
 0 - Sair
