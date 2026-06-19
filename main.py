@@ -3,8 +3,6 @@ from notasAcorde import notasAcorde, transporAcorde
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-
-print(id)
 def menu():
     file = open("assets/menu.txt")
     menu = file.read()
@@ -80,7 +78,7 @@ def atualizarMusica(idAt):
         if dados[0] != idAt:
             file.write(linha)
             continue
-        file.write(id + ";" + nome + ";")
+        file.write(str(idAt) + ";" + nome + ";")
         for comp in novoComp:
             file.write(comp + "|")
         file.write("\n")
@@ -167,7 +165,6 @@ def main():
     file = open("data/id.txt")
     id = int(file.read())
     file.close()
-    print(id)
     op = "1"
     while True:
         op = input("Digite uma opção: ")
@@ -176,8 +173,9 @@ def main():
         elif op == '2':
             opBusca = input("Procurar por nome(1: sim)? ")
             idVis = "0"
-            if opBusca  == "1": # se quer buscar por nome
+            if opBusca.strip()  == "1": # se quer buscar por nome
                 nomeBusca = input("Digite o nome: ").lower()
+                nomeBusca = " ".join(nomeBusca.split())
                 musicas = buscarMusica(nomeBusca)
                 if len(musicas) == 0: # se não achou musica com tal nome
                     print("Não existe musica com esse nome.")
@@ -194,7 +192,7 @@ def main():
             visualizarMusica(idVis)
         elif op == '3':
             nome = input("Digite o nome da música: ")
-            print("Digite os acordes, cada linha é um compasso (0 para terminar): ")
+            print("Digite os acordes(0 para terminar): ")
             compasso = ""
             compassos = "" 
             while True:
@@ -221,10 +219,13 @@ def main():
             if len(musica) == 0:
                 print("Não existe musica com esse id.")
                 continue
-            idTr = input("Digite o novo id({}): ".format(musica[0]))
             nomeTr = input("Digite o novo nome({}): ".format(musica[1]))
-            semitons = int(input("Semitons para subir(-11 a 11): "))
-            transporMusica(musica, idTr, nomeTr, semitons)
+            semitons = int(input("Semitons de mudança(-11 a 11): "))
+            transporMusica(musica, id, nomeTr, semitons)
+            id += 1
+            file = open("data/id.txt", "w")
+            file.write(str(id))
+            file.close()
         elif op == '7':
             clear()
             print(logo())

@@ -33,7 +33,7 @@ def lerAcorde(s):
             
 
     #qualidade
-    if "m" in s:
+    if ("m" in s) or ("-" in s):
         acorde['qualidade'] = "menor"
     if "maj" in s or "M" in s: # se for maj vai sobrepor, se não fica menor
         acorde['qualidade'] = "maior"
@@ -81,6 +81,7 @@ def transporAcorde(acorde, semitons):
         extensoes = acorde[1:]
         return tonica + extensoes
 def notasAcorde(s):
+
     # notas + notaValor
     acorde = lerAcorde(s)
     notas = []

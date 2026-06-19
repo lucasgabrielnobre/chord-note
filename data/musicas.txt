@@ -1,0 +1,5 @@
+1;Autumn Leaves (Lá menor);Dm7 G7 Cmaj7 Fmaj7|Bm7b5 E7 Am7|Dm7 G7 Cmaj7 Fmaj7|Bm7b5 E7 Am7|Bm7b5 E7b9 Am7|Dm7 G7 Cmaj7 Fmaj7|Bm7b5 E7b9 Am7 D7 Gm7 C7|Fmaj7 Bm7b5 E7b9 Am7|
+3;Brilha Brilha Estrelinha;C F C|G7 C|G7|G7|C F C|G7 C|
+4;II-V-I;Dm7 G7 Cmaj7|
+5;Teste;C7 G7 Dm7 Am7 A7|
+6;Autumn Leaves (Sol menor);Cm7 F7 Bbmaj7 Ebmaj7|Am7b5 D7 Gm7|Cm7 F7 Bbmaj7 Ebmaj7|Am7b5 D7 Gm7|Am7b5 D7b9 Gm7|Cm7 F7 Bbmaj7 Ebmaj7|Am7b5 D7b9 Gm7 C7 Fm7 Bb7|Ebmaj7 Am7b5 D7b9 Gm7|
