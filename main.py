@@ -129,10 +129,13 @@ def visualizarMusica(idVis):
         if compasso == "\n":
             continue
         acs = compasso.split(" ")
-        for ac in acs:
-            for nota in notasAcorde(ac):
-                print(nota, end = " ")
-            print("|", end = "")
+        try:
+            for ac in acs:
+                    for nota in notasAcorde(ac):
+                        print(nota, end = " ")
+                    print("|", end = "")
+        except KeyError:
+            print("Acordes não escritos na formatação correta.\nExemplos de acordes: Cmaj7, Dbm7, D#m7b5(9), etc.")
         print()
 
         

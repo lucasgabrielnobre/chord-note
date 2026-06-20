@@ -3,3 +3,6 @@
 4;II-V-I;Dm7 G7 Cmaj7|
 5;Teste;C7 G7 Dm7 Am7 A7|
 6;Autumn Leaves (Sol menor);Cm7 F7 Bbmaj7 Ebmaj7|Am7b5 D7 Gm7|Cm7 F7 Bbmaj7 Ebmaj7|Am7b5 D7 Gm7|Am7b5 D7b9 Gm7|Cm7 F7 Bbmaj7 Ebmaj7|Am7b5 D7b9 Gm7 C7 Fm7 Bb7|Ebmaj7 Am7b5 D7b9 Gm7|
+7;Tea for Two (instrumentos em Bb);Cm7 F7 Cm7 F7|Bbmaj7 Eb7 Dm7 C#dim7|Cm7 F7 Cm7 F7|Bbmaj7 Cm7 Dm7 Ebmaj7|Em7 A7 Em7 A7|Dmaj7 G7 F#m7 B7|Em7 A7 Em7 A7|Dmaj7 Cm7 F7|Cm7 F7 Cm7 F7|Dm7b5 G7b9|Cm7 G7 Ab7 G7|Bdim7 Cm7 Ebmaj7 Ab7|Bb/D C#dim7 Cm7 F7|Bbmaj7|
+8;Tea for Two (instrumentos em C);Bbm7 Eb7 Bbm7 Eb7|Abmaj7 Db7 Cm7 Bdim7|Bbm7 Eb7 Bbm7 Eb7|Abmaj7 Bbm7 Cm7 Dbmaj7|Dm7 G7 Dm7 G7|Cmaj7 F7 Em7 A7|Dm7 G7 Dm7 G7|Cmaj7 Bbm7 Eb7|Bbm7 Eb7 Bbm7 Eb7|Cm7b5 F7b9|Bbm7 F7 Gb7 F7|Adim7 Bbm7 Dbmaj7 Gb7|Ab/D Bdim7 Bbm7 Eb7|Abmaj7|
+9;testeKeyError;a b c d e f Gm7|

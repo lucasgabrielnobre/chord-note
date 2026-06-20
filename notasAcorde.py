@@ -161,7 +161,7 @@ def notasAcorde(s):
     return notas
 
 def main():
-    pass
+    print(notasAcorde("Bdim7"))
 
 if __name__ == "__main__":
     main()
