@@ -5,6 +5,7 @@ menor     = [0, 0, 2, 3, 5, 7, 8, 10]
 diminuta  = [0, 0, 1, 3, 5, 6, 8, 10] # Lócrio (contém 1, b3, b5)
 aumentada = [0, 0, 2, 4, 6, 8, 9, 11] # Lídio Aumentado (contém 1, 3, #5)
 
+# as notas funcionam como um círculo, depois de B volta para C
 def jump(t, x):
     return (t + x) % 12
 
@@ -87,8 +88,6 @@ def notasAcorde(s):
     notas = []
     t = acorde['tonica']
     q = acorde['qualidade']
-    if (t != acorde['baixo']): 
-        notas.append(acorde['baixo'])
     if len(acorde['extensoes']) > 0: # se tem extensao tem a setima C9 => C E G Bb D
         if '6' in acorde['extensoes']:  
             notas.append(valorNota[jump(t, maior[6])][-1])
@@ -154,14 +153,19 @@ def notasAcorde(s):
         else:
             nota = valorNota[ jump(t, valor) ][0]
 
+        #tira o 6
         if grau == 6:
             notas.pop()
         notas.append(nota)
-    notas = acorde['triade'] + notas
+    if (t != acorde['baixo']): 
+        notas = [acorde['baixo']] + acorde['triade'] + notas
+    else:
+        notas = acorde['triade'] + notas
+
     return notas
 
 def main():
-    print(notasAcorde("Bdim7"))
+    print(notasAcorde("F#7/A#"))
 
 if __name__ == "__main__":
     main()

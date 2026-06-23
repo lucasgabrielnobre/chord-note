@@ -191,7 +191,6 @@ def main():
                     idVis = input("Digite o id da música: ")
             else:
                 idVis = input("Digite o id da música: ")
-
             visualizarMusica(idVis)
         elif op == '3':
             nome = input("Digite o nome da música: ")
